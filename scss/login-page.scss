@@ -1,0 +1,302 @@
+@font-face {
+    font-family: caveat-regular;
+    src: url('../fonts/Caveat-Regular.ttf');
+}
+
+@font-face {
+    font-family: lato-regular;
+    src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+.login-page{
+    background-image: linear-gradient(
+        rgba(255, 217, 114, 1), rgba(255, 217, 114, 1)
+    );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+   header {
+        
+        padding:  40px 10px;
+        // background-color: black;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+
+
+        #brand {
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+
+            svg{
+                margin: 16px;
+                width: 167px;
+                // background-color: chocolate;
+            }
+        }
+
+        nav {
+
+            margin-right: 26px;
+            @media (max-width: 768px) {
+                display: none;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                justify-content: space-around;
+                gap: 25px;
+                font-size: 25px;
+                font-family: caveat-regular;
+                
+            }
+
+            a {
+                color: rgb(0, 0, 0);
+                text-decoration: none;
+            }
+
+            li {
+                padding: 5px;
+                margin-left: 10px;
+            }
+        }
+
+        #login {
+            background-color: #FFD972;
+            border-radius: 30px;
+            width: 130px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            /* static drop shadow */
+            box-shadow:  2px 7px rgba(0,0,0,0.10);
+
+            a {
+                color: #000000;
+                text-decoration: none;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+            }
+        }
+
+        #hamburger-icon {
+            margin: auto 0;
+            cursor: pointer;
+            display: none;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+
+            div {
+                width: 35px;
+                height: 3px;
+                background-color: white;
+                margin: 6px 0;
+                transition: 0.4s;
+            }
+
+            &.open {
+                .bar1 {
+                    transform: rotate(-45deg) translate(-6px, 6px);
+                }
+
+                .bar2 {
+                    opacity: 0;
+                }
+
+                .bar3 {
+                    transform: rotate(45deg) translate(-6px, -6px);
+                }
+
+                .mobile-menu {
+                    display: flex;
+                }
+            }
+
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                right: 0;
+                background-color: black;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+
+                li {
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+
+    .form-container {
+        display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 100px 10%;
+    gap: 30px;
+
+    
+        .form {
+            width: 300px;
+        //   background-color: burlywood;
+
+            /* move the first form (login) down to align with the vertical middle of the other form */
+            &:first-child {
+                align-self: center;
+            }
+
+            h2 {
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        font-family: lato-regular;
+      }
+
+      .note {
+        font-family: lato-regular;
+        font-style: italic;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+
+        input {
+        //   padding: 0.5rem;
+        margin-bottom: 50px;
+          border: none;
+          border-bottom: 3px solid #000;
+          background: transparent;
+          outline: none;
+          color: black;
+
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px rgba(255, 217, 114, 1) inset;
+            -webkit-text-fill-color: black;
+            transition: background-color 5000s ease-in-out 0s;
+          }
+        }
+
+        button {
+            font-size: 19px;
+            width: 160px;
+          background-color: #FFD972;
+          border: none;
+          border-radius: 25px;
+          padding: 0.6rem 2rem;
+          font-style: italic;
+          cursor: pointer;
+          margin-top: 1rem;
+          box-shadow: 3px 10px 0 rgba(0, 0, 0, 0.1);
+          font-family: caveat-regular;
+          align-self: flex-start;
+          transition: 0.3s;
+
+          &:hover {
+            transform: translateY(-2px);
+          }
+        }
+      }
+        }
+     }
+
+     /* Responsive: stack forms on small screens */
+     @media (max-width: 768px) {
+         .form-container {
+             flex-direction: column;
+             align-items: center;
+             padding: 48px 6%;
+             gap: 24px;
+         }
+
+         .form {
+            margin-top: 30px;
+            margin-bottom: 30px;
+             width: 100%;
+             max-width: 520px;
+             align-self: stretch; /* make forms full-width inside container */
+
+             h2 { text-align: center; }
+         }
+
+         .form form input {
+             margin-bottom: 24px;
+         }
+
+         .form form button {
+             align-self: center;
+         }
+     }
+
+
+    footer {
+        // background-color: darkcyan;
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #3b3b3b;
+    font-family: lato-regular;
+
+    .copy{
+        margin-left: 10px;
+        font-style: italic;
+        padding-top:10px ;
+    }
+
+    .middle{
+        padding-top: 10px;
+
+        a {
+      color: #3b3b3b;
+      text-decoration: none;
+      margin: 0 5px;
+      font-style: italic;
+      padding: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    }
+    
+
+    
+
+    .socials {
+        gap: 30px
+        ;
+        // background-color: cadetblue;
+      svg {
+        margin-right: 40px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+}
+}
